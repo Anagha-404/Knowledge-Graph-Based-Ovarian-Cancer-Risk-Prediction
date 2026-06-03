@@ -1,0 +1,21 @@
+# Virtual environment
+venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Neo4j database files
+neo4j/
+
+# VS Code settings
+.vscode/
+
+# System files
+.DS_Store
+
+*.csv
+converted_dataset.csv
+final_dataset.csv
+*.txt
+GSE9891_series_matrix.txt
