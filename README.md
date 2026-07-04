@@ -23,7 +23,7 @@ Thiruvananthapuram — April 2026
 
 ## Overview
 
-Predicting disease risk from gene expression data is difficult because genes rarely act independently—their interactions form complex biological pathways that conventional machine learning models often fail to capture. This project addresses that gap by:
+Predicting disease risk from gene expression data is challenging because genes interact through complex biological pathways that traditional machine learning models often fail to capture. This project addresses that gap by:
 
 1. Representing patients and genes as a **Knowledge Graph**, with edges capturing gene expression relationships.
 2. Storing and querying this graph using **Neo4j**.
@@ -45,47 +45,47 @@ Build a knowledge-graph-based framework for predicting ovarian cancer risk from 
 **Pipeline:**  
 Data Preprocessing → Knowledge Graph Construction → Graph Storage (Neo4j) → Graph Processing → Feature Extraction → Random Forest Classification → SHAP Explainability → Result Visualization
 
-| Stage | Description |
-|-------|-------------|
-| Data Preprocessing | Handles missing values, normalization, class balancing, and selection of the top variable genes |
-| Knowledge Graph Construction | Builds nodes (patients, genes) and edges (expression relationships) |
-| Graph Storage | Persists the knowledge graph in a Neo4j database |
-| Graph Processing | Constructs patient-gene graph representations and feature matrices |
-| Feature Extraction | Generates normalized top-20 gene expression feature vectors for each patient |
-| Random Forest Classification | Predicts patient risk using graph-derived gene expression features |
-| Explainability Module | Uses SHAP to rank genes by importance for each prediction |
-| Real-Time Update Module | Adds new patients and generates predictions without rebuilding the graph |
+| Stage                        | Description                                                                                     |
+| ---------------------------- | ----------------------------------------------------------------------------------------------- |
+| Data Preprocessing           | Handles missing values, normalization, class balancing, and selection of the top variable genes |
+| Knowledge Graph Construction | Builds nodes (patients, genes) and edges (expression relationships)                             |
+| Graph Storage                | Persists the knowledge graph in a Neo4j database                                                |
+| Graph Processing             | Constructs patient-gene graph representations and feature matrices                              |
+| Feature Extraction           | Generates normalized top-20 gene expression feature vectors for each patient                    |
+| Random Forest Classification | Predicts patient risk using graph-derived gene expression features                              |
+| Explainability Module        | Uses SHAP to rank genes by importance for each prediction                                       |
+| Real-Time Update Module      | Adds new patients and generates predictions without rebuilding the graph                        |
 
 ---
 
 ## Core Classes
 
-| Class | Responsibility |
-|-------|----------------|
-| `Patient` | Represents a patient and their linked gene data |
-| `Gene` | Represents a biological gene |
-| `Expression` | Stores the gene expression value for a patient-gene pair |
-| `Neo4jConnector` | Handles database read/write via Cypher queries |
-| `Extract` | Retrieves and prepares expression data and labels |
-| `DataFrame` | Tabular intermediate representation of processed data |
-| `BuildGraph` | Converts processed data into a patient-gene graph structure |
-| `RandomForestClassifier` | Performs patient risk classification |
-| `Train` | Trains and evaluates the Random Forest model |
-| `PredictNew` | Adds new patients and generates real-time predictions |
+| Class                    | Responsibility                                              |
+| ------------------------ | ----------------------------------------------------------- |
+| `Patient`                | Represents a patient and their linked gene data             |
+| `Gene`                   | Represents a biological gene                                |
+| `Expression`             | Stores the gene expression value for a patient-gene pair    |
+| `Neo4jConnector`         | Handles database read/write via Cypher queries              |
+| `Extract`                | Retrieves and prepares expression data and labels           |
+| `DataFrame`              | Tabular intermediate representation of processed data       |
+| `BuildGraph`             | Converts processed data into a patient-gene graph structure |
+| `RandomForestClassifier` | Performs patient risk classification                        |
+| `Train`                  | Trains and evaluates the Random Forest model                |
+| `PredictNew`             | Adds new patients and generates real-time predictions       |
 
 ---
 
 ## Tech Stack
 
-| Component | Technology |
-|-----------|------------|
-| OS | Windows / Linux |
-| Language | Python |
-| Graph Database | Neo4j |
+| Component       | Technology                               |
+| --------------- | ---------------------------------------- |
+| OS              | Windows / Linux                          |
+| Language        | Python                                   |
+| Graph Database  | Neo4j                                    |
 | ML/DL Libraries | PyTorch, PyTorch Geometric, scikit-learn |
-| Data Processing | Pandas, NumPy |
-| Explainability | SHAP |
-| Visualization | Streamlit, PyVis, Matplotlib, NetworkX |
+| Data Processing | Pandas, NumPy                            |
+| Explainability  | SHAP                                     |
+| Visualization   | Streamlit, PyVis, Matplotlib, NetworkX   |
 
 **Minimum Requirements:** Intel i5 or higher, 8 GB RAM (16 GB recommended), 10 GB free storage, internet access for dataset/library installation.
 
@@ -95,26 +95,26 @@ Data Preprocessing → Knowledge Graph Construction → Graph Storage (Neo4j) �
 
 ### Classification Performance
 
-| Evaluation | Accuracy | Precision | Recall | F1-Score |
-|------------|----------|-----------|--------|----------|
-| Train Set | 92.2% | 86.5% | 100% | 92.8% |
-| Test Set | 53.6% | 53.3% | 57.1% | 55.2% |
+| Evaluation          | Accuracy  | Precision | Recall    | F1-Score  |
+| ------------------- | --------- | --------- | --------- | --------- |
+| Train Set           | 92.2%     | 86.5%     | 100%      | 92.8%     |
+| Test Set            | 53.6%     | 53.3%     | 57.1%     | 55.2%     |
 | **Overall Dataset** | **80.4%** | **76.9%** | **87.0%** | **81.6%** |
 
 ### Cross-Validation Performance
 
-| Evaluation | Result |
-|------------|--------|
+| Evaluation                       | Result        |
+| -------------------------------- | ------------- |
 | 5-Fold Cross-Validation Accuracy | 59.4% ± 15.7% |
-| 5-Fold Cross-Validation Recall | 66.2% ± 23.0% |
+| 5-Fold Cross-Validation Recall   | 66.2% ± 23.0% |
 | 5-Fold Cross-Validation F1-Score | 60.6% ± 17.8% |
 
 ### Computational Performance
 
-| Model | Training Time | Prediction Speed |
-|-------|---------------|------------------|
-| Random Forest | Low | Very Fast |
-| Knowledge Graph + Random Forest Pipeline | Moderate | Fast |
+| Model                                    | Training Time | Prediction Speed |
+| ---------------------------------------- | ------------- | ---------------- |
+| Random Forest                            | Low           | Very Fast        |
+| Knowledge Graph + Random Forest Pipeline | Moderate      | Fast             |
 
 The proposed framework effectively combines knowledge graph modeling with Random Forest classification to provide interpretable ovarian cancer risk predictions. Although the dataset size limits generalization, SHAP explanations and graph-based relationship modeling improve transparency and clinical interpretability.
 
@@ -150,14 +150,14 @@ The proposed framework effectively combines knowledge graph modeling with Random
 
 ## References
 
-1. J. Chen et al., *Prediction of Ovarian Cancer-Related Metabolites Based on Graph Neural Network*, *Frontiers in Cell and Developmental Biology*, vol. 9, 2021.
-2. G. S. P. Ghantasala et al., *Enhanced Ovarian Cancer Survival Prediction using Temporal Analysis and Graph Neural Networks*, *BMC Medical Informatics and Decision Making*, vol. 24, 2024.
-3. K. Tan et al., *A Hierarchical Graph Convolution Network for Representation Learning of Gene Expression Data*, *IEEE Journal of Biomedical and Health Informatics*, vol. 25, no. 8, 2021.
-4. D. R. Cox, *Regression Models and Life-Tables*, *Journal of the Royal Statistical Society: Series B*, vol. 34, no. 2, 1972.
-5. S. Ji et al., *A Survey on Knowledge Graphs: Representation, Acquisition, and Applications*, *IEEE Transactions on Neural Networks and Learning Systems*, vol. 33, no. 2, 2022.
+1. J. Chen et al., _Prediction of Ovarian Cancer-Related Metabolites Based on Graph Neural Network_, _Frontiers in Cell and Developmental Biology_, vol. 9, 2021.
+2. G. S. P. Ghantasala et al., _Enhanced Ovarian Cancer Survival Prediction using Temporal Analysis and Graph Neural Networks_, _BMC Medical Informatics and Decision Making_, vol. 24, 2024.
+3. K. Tan et al., _A Hierarchical Graph Convolution Network for Representation Learning of Gene Expression Data_, _IEEE Journal of Biomedical and Health Informatics_, vol. 25, no. 8, 2021.
+4. D. R. Cox, _Regression Models and Life-Tables_, _Journal of the Royal Statistical Society: Series B_, vol. 34, no. 2, 1972.
+5. S. Ji et al., _A Survey on Knowledge Graphs: Representation, Acquisition, and Applications_, _IEEE Transactions on Neural Networks and Learning Systems_, vol. 33, no. 2, 2022.
 
 ---
 
 ## Acknowledgement
 
-This project was carried out under the guidance of **Ms. Diana Mathew, Assistant Professor**, and coordinated by **Ms. Anjali S**, in the Department of Computer Science and Engineering, Mar Baselios College of Engineering and Technology.  
+This project was carried out under the guidance of **Ms. Diana Mathew, Assistant Professor**, and coordinated by **Ms. Anjali S**, in the Department of Computer Science and Engineering, Mar Baselios College of Engineering and Technology.
